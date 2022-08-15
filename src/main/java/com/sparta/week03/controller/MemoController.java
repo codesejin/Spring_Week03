@@ -11,6 +11,9 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 public class MemoController {
+    //아래는 멤버변수기 때문에 private으로 선언할 뿐 만 아니라 필수적이기에 final
+    // @RequiredArgsConstructor가 필요한 이유는
+    // MemoController도 결국 어딘가에서 new MemoController로 객체 생성할텐데 그 작업을 스프링이해줌
     private final MemoRepository memoRepository;
     private final MemoService memoService;
     //생성부분
@@ -33,7 +36,7 @@ public class MemoController {
     //업데이트하기
     @PutMapping("/api/memos/{id}")
     public Long updateMemo(@PathVariable Long id, @RequestBody MemoRequestDto requestDto){
-        MemoService.update(id, requestDto);
+        memoService.update(id, requestDto);
         return id;
     }
 }
