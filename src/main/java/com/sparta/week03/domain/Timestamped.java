@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @EntityListeners(AuditingEntityListener.class) // 생성/변경 시간을 자동으로 업데이트합니다.
 // abstract는 객체를 못 만듬, 다른데서 상속이 되어야만 그때만 객체를 만들 수 있다
 public abstract class Timestamped {
-
+    
     @CreatedDate
     private LocalDateTime createdAt;
 
